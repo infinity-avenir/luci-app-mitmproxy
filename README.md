@@ -224,10 +224,3 @@ The packaging and LuCI app in this repository: see `LICENSE`. mitmproxy itself i
 <img width="1410" height="651" alt="image" src="https://github.com/user-attachments/assets/497d4217-41c3-4f93-9add-912643bc3ca7" /><br>
 <br>
 <img width="1412" height="649" alt="image" src="https://github.com/user-attachments/assets/dd89d135-124b-4bef-8829-4960a6c543e8" />
-
-
-
-
-
-
-
