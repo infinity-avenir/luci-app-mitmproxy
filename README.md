@@ -1,4 +1,4 @@
-# mitmproxy 12.2.3 for OpenWrt 25.12 (with LuCI web interface)
+# LuCI web interface for mitmproxy 12.2.3 on OpenWrt 25.12.x
 
 Run [mitmproxy](https://mitmproxy.org/), the interactive HTTPS-intercepting proxy, on an OpenWrt 25.12 router, and manage it from LuCI.
 
