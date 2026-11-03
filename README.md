@@ -68,7 +68,6 @@ The remaining Python libraries (cryptography, tornado, flask, …) are installed
 | GL.iNet GL-MT6000 Flint 2 | aarch64 | Supported (tested) |
 | GL.iNet GL-MT3000 Beryl AX | aarch64 | Supported (needs ~100 MB free storage) |
 | GL.iNet GL-MT3600BE Beryl 7 | aarch64 | Supported |
-| x86_64 OpenWrt (PC, VM) | x86_64 | Use `build_mitmproxy_apk_x86_64.py` (see below) |
 | Linksys WRT1200AC / 1900AC / 3200ACM / 32X | armv7 | **Not supported by these packages.** PyPI has no ready-made armv7 musl builds of cryptography, cffi, bcrypt and others. Use `fw-setup.sh -mitmproxy-compat` instead (Regular mode only) |
 
 Requirements on the router: OpenWrt 25.12, Python 3.13 (installed automatically as a dependency), internet access during installation, roughly 100 MB of storage and 60 MB of free RAM for mitmweb.
@@ -166,33 +165,6 @@ Settings and the CA key are kept across firmware upgrades (`/lib/upgrade/keep.d/
 ## Build the packages from source
 
 Both build scripts are self-contained Python 3 scripts with the APK v3 writer built in. They run on any Linux PC (Python 3.12 or newer, `pip`, internet access). Nothing is compiled.
-
-### Core package (`mitmproxy`)
-
-```sh
-pip download --no-deps --only-binary :all: mitmproxy==12.2.3 -d src
-python3 build_mitmproxy_apk.py --source src/mitmproxy-12.2.3-py3-none-any.whl
-```
-
-Output: `build/output/mitmproxy_12.2.3-r2_noarch.apk`. The script also downloads the aioquic 1.2.0 source from PyPI.
-
-For **x86_64 OpenWrt** use the x86_64 script instead. It bundles all Python libraries inside the package, so the router installs them offline (it falls back to PyPI if the router's Python is not 3.13):
-
-```sh
-python3 build_mitmproxy_apk_x86_64.py --source src/mitmproxy-12.2.3-py3-none-any.whl
-```
-
-Output: `build/output/mitmproxy_12.2.3-r2_x86_64.apk` (about 18 MB).
-
-### LuCI package (`luci-app-mitmproxy`)
-
-Run from the folder that contains `luci-app-mitmproxy/`:
-
-```sh
-python3 build_luci_apk.py
-```
-
-Output: `output/luci-app-mitmproxy_1.0.0-r3_noarch.apk`.
 
 ### LuCI source layout
 
