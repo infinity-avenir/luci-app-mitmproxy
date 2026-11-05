@@ -2,7 +2,6 @@
 
 Run [mitmproxy](https://mitmproxy.org/), the interactive HTTPS-intercepting proxy, on an OpenWrt 25.12 router, and manage it from LuCI.
 
-This repository contains two APK packages (the apk-tools v3 format used by OpenWrt 25.x) and the Python scripts that build them:
 
 | Package | File | What it contains |
 |---|---|---|
